@@ -1,0 +1,48 @@
+{
+  "skill": "yi-zi-yi-ji",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "上次测'明'字说是吉，这次也是'明'字，结果应该一样吧？",
+      "expected_behavior": "调用 yi-zi-yi-ji，解释字同事不同原则",
+      "notes": "正面场景：用户假设同字同断"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "为什么同一个字不同人问答案会不一样？测字不是应该有标准答案吗？",
+      "expected_behavior": "调用 yi-zi-yi-ji，解释一字一机原则",
+      "notes": "正面场景：质疑测字的确定性"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "我朋友测'福'字说很吉，我也想测'福'字，帮我看看",
+      "expected_behavior": "调用 yi-zi-yi-ji，提醒不可照搬朋友的结果",
+      "notes": "正面场景：照搬前例的倾向"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我拆一下'福'字的字形结构",
+      "expected_behavior": "应调用 ce-zi-shi-fa，不应调用 yi-zi-yi-ji",
+      "notes": "跨 skill 诱饵：字形操作应触发测字十法"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个字我凭直觉感觉是吉，你觉得呢？",
+      "expected_behavior": "应调用 guan-mei-xin-fa 或 qu-ge-duan-fa，不应调用 yi-zi-yi-ji",
+      "notes": "跨 skill 诱饵：直觉判断应触发观梅心法或取格断法"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我今天和昨天都测了同一个字，但问的事不同，结果会一样吗？",
+      "expected_behavior": "调用 yi-zi-yi-ji，解释不同事问同字也应不同断",
+      "notes": "边界：同字不同事，应触发一字一机"
+    }
+  ]
+}
