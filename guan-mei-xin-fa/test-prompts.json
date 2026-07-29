@@ -1,0 +1,48 @@
+{
+  "skill": "guan-mei-xin-fa",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "我已经学会了十法和六法，怎么才能达到更高的境界？",
+      "expected_behavior": "调用 guan-mei-xin-fa，介绍观梅心法作为进阶方向",
+      "notes": "正面场景：从术到道的进阶需求"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "有没有一种不拆字、凭直觉就能判断的方法？",
+      "expected_behavior": "调用 guan-mei-xin-fa，介绍心镜光明的直觉感知",
+      "notes": "正面场景：直觉测字需求"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "什么是观梅？测字里的观梅法怎么理解？",
+      "expected_behavior": "调用 guan-mei-xin-fa",
+      "notes": "正面场景：直接问观梅"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我用固定的方法拆一下这个字",
+      "expected_behavior": "应调用 ce-zi-shi-fa，不应调用 guan-mei-xin-fa",
+      "notes": "跨 skill 诱饵：固定方法应触发测字十法"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "这个字五行怎么看？帮我断吉凶",
+      "expected_behavior": "应调用 qu-ge-duan-fa，不应调用 guan-mei-xin-fa",
+      "notes": "跨 skill 诱饵：五行断法应触发取格断法"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "我测字从来不拆字，都是凭第一眼的感觉，这算观梅法吗？",
+      "expected_behavior": "可调用 guan-mei-xin-fa，但需说明真正的观梅需要'心镜光明'，不只是凭感觉",
+      "notes": "边界：直觉 vs 观梅的区分"
+    }
+  ]
+}
