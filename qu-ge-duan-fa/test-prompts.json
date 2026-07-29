@@ -1,0 +1,48 @@
+{
+  "skill": "qu-ge-duan-fa",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "'泽'字问事业，帮我断个吉凶",
+      "expected_behavior": "调用 qu-ge-duan-fa，用五行生克+六神断法",
+      "notes": "正面场景：明确要求吉凶判断"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "这个字的五行怎么看？偏旁是三点水",
+      "expected_behavior": "调用 qu-ge-duan-fa",
+      "notes": "正面场景：五行归属判断"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "帮我取个格，'钟'字问终身",
+      "expected_behavior": "调用 qu-ge-duan-fa，产出一句断语",
+      "notes": "正面场景：取格（用户用了术语'取格'）"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我拆一下'钟'字的结构",
+      "expected_behavior": "应调用 ce-zi-shi-fa（字形操作），不应调用 qu-ge-duan-fa",
+      "notes": "跨 skill 诱饵：字形拆解应触发测字十法"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "'钟'字有哪些含义？从不同角度解读一下",
+      "expected_behavior": "应调用 xin-yi-liu-fa（字义推导），不应调用 qu-ge-duan-fa",
+      "notes": "跨 skill 诱饵：字义解读应触发心易六法"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "这个字问病，是吉是凶？",
+      "expected_behavior": "调用 qu-ge-duan-fa，但需提醒五行六神只是参考",
+      "notes": "边界：问病场景需要谨慎判断"
+    }
+  ]
+}
