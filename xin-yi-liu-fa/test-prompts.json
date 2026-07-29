@@ -1,0 +1,55 @@
+{
+  "skill": "xin-yi-liu-fa",
+  "version": "0.1.0",
+  "test_cases": [
+    {
+      "id": "should-trigger-01",
+      "type": "should_trigger",
+      "prompt": "'龙'这个字从哪些角度可以解读它的含义？",
+      "expected_behavior": "调用 xin-yi-liu-fa，用六法多维度解读",
+      "notes": "正面场景：字义多维解读"
+    },
+    {
+      "id": "should-trigger-02",
+      "type": "should_trigger",
+      "prompt": "我想给品牌取名，需要从谐音和意象两方面分析一个字",
+      "expected_behavior": "调用 xin-yi-liu-fa，用谐声+会意法",
+      "notes": "正面场景：谐音意象分析"
+    },
+    {
+      "id": "should-trigger-03",
+      "type": "should_trigger",
+      "prompt": "这个字在不同语境下可以有哪些不同的理解？'临'",
+      "expected_behavior": "调用 xin-yi-liu-fa，用转注多义法",
+      "notes": "正面场景：一字多义"
+    },
+    {
+      "id": "should-not-trigger-01",
+      "type": "should_not_trigger",
+      "prompt": "帮我把'福'字拆开看看每个部分什么意思",
+      "expected_behavior": "应调用 ce-zi-shi-fa（字形拆解操作），不应调用 xin-yi-liu-fa",
+      "notes": "跨 skill 诱饵：字形拆解操作应触发测字十法"
+    },
+    {
+      "id": "should-not-trigger-02",
+      "type": "should_not_trigger",
+      "prompt": "'明'字五行属什么？吉凶怎么断？",
+      "expected_behavior": "应调用 qu-ge-duan-fa，不应调用 xin-yi-liu-fa",
+      "notes": "跨 skill 诱饵：五行吉凶应触发取格断法"
+    },
+    {
+      "id": "edge-01",
+      "type": "edge_case",
+      "prompt": "'梨'和'离'谐音，送礼是不是不吉利？",
+      "expected_behavior": "可调用 xin-yi-liu-fa（谐声法），但也涉及民俗判断",
+      "notes": "边界：谐音测字与民俗禁忌的交叉"
+    },
+    {
+      "id": "edge-02",
+      "type": "edge_case",
+      "prompt": "这个字看起来像一把刀，是不是凶兆？",
+      "expected_behavior": "可调用 xin-yi-liu-fa（象形法），但需说明象形是推导不是定论",
+      "notes": "边界：象形解读与主观感受的区分"
+    }
+  ]
+}
